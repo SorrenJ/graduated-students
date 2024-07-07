@@ -70,9 +70,22 @@ const students = [
     email: "angela@example.com",
     phone: "555-555-5555",
     graduated: true
-  },
+  }
 ];
-
 const graduatedStudents = (listOfStudents) => {
-//Implement function
+  const result = [];
+
+  listOfStudents.forEach(student => {
+    const { name, email, graduated: hasGraduated } = student;
+
+    if (hasGraduated) {
+      result.push(`${name} has graduated and their diploma will be sent to ${email}.`);
+    } else {
+      result.push(`${name} has not graduated yet, no diploma will be sent.`);
+    }
+  });
+
+  return result;
 };
+
+console.log(graduatedStudents(students));
